@@ -3,6 +3,7 @@ import {
   Check,
   Column,
   Entity,
+  JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm'
@@ -69,6 +70,13 @@ export class Persona {
   @Column({ type: 'varchar', length: 25, nullable: true })
   escolaridad?: string
 
+  @Column({
+    name: 'id_persona_responsable',
+    nullable: true,
+  })
+  idPersonaReponsable?: number
+
   @ManyToOne(() => Persona, { nullable: true })
+  @JoinColumn({ name: 'id_persona_responsable' })
   personaResponsable: Persona
 }
