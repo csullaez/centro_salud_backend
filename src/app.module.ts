@@ -17,7 +17,7 @@ import { PacienteModule } from './paciente/paciente.module'
         username: 'postgres',
         password: 'postgres',
         database: 'centro_salud_db',
-        entities: [__dirname + '../../**/*.entity{.ts,.js}'],
+        entities: [__dirname + '../**/*.entity{.ts,.js}'],
         keepConnectionAlive: true,
         synchronize: false,
       }),

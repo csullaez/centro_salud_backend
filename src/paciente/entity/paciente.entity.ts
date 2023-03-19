@@ -7,7 +7,7 @@ import {
 } from 'typeorm'
 import { Persona } from './persona.entity'
 
-@Entity({ name: 'personas' })
+@Entity({ name: 'pacientes' })
 export class Paciente {
   @PrimaryGeneratedColumn({ type: 'bigint', name: 'id' })
   id: string
@@ -43,7 +43,7 @@ export class Paciente {
   @Column({ name: 'id_persona', type: 'bigint' })
   idPersona: string
 
-  @OneToOne(() => Persona, (persona) => persona.paciente, {
+  @OneToOne(() => Persona, {
     nullable: false,
   })
   @JoinColumn({

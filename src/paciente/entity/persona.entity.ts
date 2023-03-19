@@ -3,11 +3,9 @@ import {
   Check,
   Column,
   Entity,
-  JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm'
-import { Paciente } from './paciente.entity'
 
 @Entity({ name: 'personas' })
 export class Persona {
@@ -71,50 +69,6 @@ export class Persona {
   @Column({ type: 'varchar', length: 25, nullable: true })
   escolaridad?: string
 
-  @Column({
-    name: 'persona_responsable',
-    type: 'varchar',
-    length: 25,
-    nullable: true,
-  })
-  personaResponsable?: string
-
-  @OneToOne(() => Paciente, (paciente) => paciente.persona)
-  @JoinColumn()
-  paciente: Paciente
-  /*
-  @Check(
-    `tipo_persona in ('${TipoPersona.EXTRANJERO}', '${TipoPersona.NACIONAL}')`,
-  )
-  @Column({
-    name: 'tipo_persona',
-    length: 15,
-    type: 'varchar',
-    default: TipoPersona.NACIONAL,
-  })
-  tipoPersona: string
-
-  @Column({ name: 'estado_sigep', type: 'varchar', default: false })
-  estadoSegip: string | null
-
-  @OneToMany(() => Usuario, (usuario) => usuario.persona)
-  usuarios: Usuario[]
-
-  @OneToMany(() => Beneficiario, (beneficiario) => beneficiario.persona)
-  beneficiarios: Beneficiario[]
-
-  @OneToMany(() => Tutor, (tutor) => tutor.persona)
-  tutores: Tutor[]
-
-  @OneToMany(() => Domicilio, (domicilio) => domicilio.persona)
-  domicilios: Domicilio[]
-
-  constructor(data?: Partial<Persona>) {
-    super(data)
-  }
-
-  @BeforeInsert()
-  insertarEstado() {
-    this.estado = this.estado || PersonaEstado.ACTIVE
-  }*/
+  @ManyToOne(() => Persona, { nullable: true })
+  personaResponsable: Persona
 }
