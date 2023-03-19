@@ -14,15 +14,20 @@ export class ExamenIntraOral {
   @Column({ type: 'varchar', length: 50, nullable: true })
   paladar: string
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ name: 'piso_de_boca', type: 'varchar', length: 50, nullable: true })
   pisoDeBoca: string
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({ name: 'mucosa_yugal', type: 'varchar', length: 50, nullable: true })
   mucosaYugal: string
 
   @Column({ type: 'varchar', length: 50, nullable: true })
   ensias: string
 
-  @Column({ type: 'varchar', length: 50, nullable: true })
+  @Column({
+    name: 'usa_proteccion_bucal',
+    type: 'varchar',
+    length: 50,
+    nullable: true,
+  })
   usaProteccionBucal: string
 }

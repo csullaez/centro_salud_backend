@@ -1,5 +1,11 @@
 import { HistorialClinico } from '../../paciente/entity/historial_clinico.entity'
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm'
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm'
 import { AsignacionTurno } from './asignacion_turno.entity'
 import { Servicio } from './servicio.entity'
 import { Usuario } from 'src/usuario/entity/usuario.entity'
