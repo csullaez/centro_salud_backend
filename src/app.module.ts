@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { PacienteModule } from './paciente/paciente.module'
 
 @Module({
   imports: [
@@ -16,16 +17,12 @@ import { AppService } from './app.service'
         username: 'postgres',
         password: 'postgres',
         database: 'centro_salud_db',
-        entities: [__dirname + '../../../../**/*.entity{.ts,.js}'],
-        keepConnectionAlive: true,
-        synchronize: false,
-        // logger: new PrintSQL(
-        // configService.get('FORCE_SQL_LOG') === 'true' ||
-        // (configService.get('NODE_ENV') === 'development' &&
-        // configService.get('LOG_SQL') === 'true'),
-        // ),
+        // entities: [__dirname + '../../../../**/*.entity{.ts,.js}'],
+        // keepConnectionAlive: true,
+        // synchronize: false,
       }),
     }),
+    PacienteModule,
   ],
   controllers: [AppController],
   providers: [AppService],
