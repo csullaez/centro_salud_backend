@@ -1,5 +1,13 @@
 import { EstadoCivil, Genero } from 'src/application/constantes'
-import { Check, Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import {
+  Check,
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm'
+import { Paciente } from './paciente.entity'
 
 @Entity({ name: 'personas' })
 export class Persona {
@@ -39,7 +47,7 @@ export class Persona {
   fechaNacimiento?: Date | null
 
   @Check(
-    `genero in ('${Genero.MASCULINO}', '${Genero.FEMENINO}', '${Genero.OTRO}')`,
+    `genero in ('${Genero.MASCULINO}', '${Genero.FEMENINO}', '${Genero.OTRO}')`
   )
   @Column({ length: 15, type: 'varchar', nullable: true })
   genero?: string | null
@@ -70,6 +78,10 @@ export class Persona {
     nullable: true,
   })
   personaResponsable?: string
+
+  @OneToOne(() => Paciente, (paciente) => paciente.persona)
+  @JoinColumn()
+  paciente: Paciente
   /*
   @Check(
     `tipo_persona in ('${TipoPersona.EXTRANJERO}', '${TipoPersona.NACIONAL}')`,
