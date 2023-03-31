@@ -31,6 +31,9 @@ export class Usuario {
   })
   fecha: Date
 
+  @Column({ type: 'varchar', nullable: false })
+  correo: string
+
   @Column({ name: 'estado', type: 'varchar', nullable: true })
   estado: string
 
