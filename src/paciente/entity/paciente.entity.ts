@@ -12,9 +12,6 @@ export class Paciente {
   @PrimaryGeneratedColumn({ type: 'bigint', name: 'id' })
   id: string
 
-  @Column({ length: 100, type: 'varchar', nullable: true })
-  nombres?: string | null
-
   @Column({
     name: 'alergia',
     type: 'varchar',
