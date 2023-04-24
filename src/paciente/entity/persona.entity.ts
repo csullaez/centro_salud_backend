@@ -8,7 +8,7 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm'
 
-@Entity({ name: 'personas' })
+@Entity({ name: 'persona' })
 export class Persona {
   @PrimaryGeneratedColumn({ type: 'bigint', name: 'id' })
   id: string
