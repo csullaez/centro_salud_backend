@@ -20,4 +20,9 @@ export class PersonaRepository {
   async crear(personaDto: CrearPersonaDto) {
     return await this.dataSource.getRepository(Persona).save({ ...personaDto })
   }
+  async actualizar(id: string, personaDto: Partial<CrearPersonaDto>) {
+    return await this.dataSource
+      .getRepository(Persona)
+      .update(id, { ...personaDto })
+  }
 }

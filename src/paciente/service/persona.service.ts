@@ -18,4 +18,9 @@ export class PersonaService {
     const resultado = await this.personaRepository.crear(personaDto)
     return resultado
   }
+
+  async actualizar(id: string, personaDto: Partial<CrearPersonaDto>) {
+    const resultado = await this.personaRepository.actualizar(id, personaDto)
+    return resultado
+  }
 }
